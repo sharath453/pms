@@ -26,14 +26,37 @@
 
     <div class="container">
       <h2 class="mb-4">Search Patients</h2>
+
       <form method="get" class="mb-4">
-        <div class="input-group">
-          <input
-            type="text"
-            class="form-control"
-            name="name"
-            placeholder="Enter patient name"
-          />
+        <div class="row g-2">
+          <div class="col-md-4">
+            <input
+              type="text"
+              class="form-control"
+              name="name"
+              placeholder="Enter patient name"
+              value="{{ request.GET.name }}"
+            />
+          </div>
+          <div class="col-md-4">
+            <input
+              type="text"
+              class="form-control"
+              name="id"
+              placeholder="Enter patient ID"
+              value="{{ request.GET.id }}"
+            />
+          </div>
+          <div class="col-md-4">
+            <input
+              type="date"
+              class="form-control"
+              name="birth_date"
+              value="{{ request.GET.birth_date }}"
+            />
+          </div>
+        </div>
+        <div class="mt-3">
           <button type="submit" class="btn btn-primary">Search</button>
         </div>
       </form>
@@ -44,6 +67,8 @@
           <tr>
             <th>ID</th>
             <th>Full Name</th>
+            <th>Gender</th>
+            <th>Birth Date</th>
           </tr>
         </thead>
         <tbody>
@@ -51,6 +76,8 @@
           <tr>
             <td>{{ patient.id }}</td>
             <td>{{ patient.name }}</td>
+            <td>{{ patient.gender }}</td>
+            <td>{{ patient.birth_date }}</td>
           </tr>
           {% endfor %}
         </tbody>

@@ -22,7 +22,6 @@ def log_operation(operation, patient_id=None, status='success', message=''):
     )
     logger.info(f"{operation} - {patient_id} - {status} - {message}")
 
-
 # ----------------- API Endpoints -----------------
 @api_view(['POST'])
 def create_patient(request):
@@ -46,25 +45,57 @@ def create_patient(request):
             return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
-@api_view(['GET'])
+@api_view(['GET', 'PUT', 'DELETE'])
 def patient_detail(request, patient_id):
-    """GET patient by ID"""
-    try:
-        r = requests.get(f"{FHIR_SERVER}/Patient/{patient_id}")
-        r.raise_for_status()
-        patient = r.json()
-        name_data = patient.get("name", [{}])[0]
-        return Response({
-            "id": patient.get("id"),
-            "first_name": name_data.get("given", [""])[0],
-            "last_name": name_data.get("family", ""),
-            "gender": patient.get("gender"),
-            "birth_date": patient.get("birthDate")
-        })
-    except Exception as e:
-        return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
+    """GET / PUT / DELETE patient by ID"""
+    if request.method == 'GET':
+        try:
+            r = requests.get(f"{FHIR_SERVER}/Patient/{patient_id}")
+            r.raise_for_status()
+            patient = r.json()
+            name_data = patient.get("name", [{}])[0]
+            return Response({
+                "id": patient.get("id"),
+                "first_name": name_data.get("given", [""])[0],
+                "last_name": name_data.get("family", ""),
+                "gender": patient.get("gender"),
+                "birth_date": patient.get("birthDate")
+            })
+        except Exception as e:
+            return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
 
+    elif request.method == 'PUT':
+        serializer = PatientSerializer(data=request.data)
+        if serializer.is_valid():
+            data = serializer.validated_data
+            payload = {
+                "resourceType": "Patient",
+                "id": patient_id,
+                "name": [{"given": [data["first_name"]], "family": data["last_name"]}],
+                "gender": data["gender"],
+                "birthDate": str(data["birth_date"])
+            }
+            try:
+                r = requests.put(f"{FHIR_SERVER}/Patient/{patient_id}", json=payload)
+                r.raise_for_status()
+                log_operation("UPDATE", patient_id, "success", "Patient updated")
+                return Response({"id": patient_id, "status": "updated", "message": "Patient updated successfully"})
+            except Exception as e:
+                log_operation("UPDATE", patient_id, "failed", str(e))
+                return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    elif request.method == 'DELETE':
+        try:
+            r = requests.delete(f"{FHIR_SERVER}/Patient/{patient_id}")
+            if r.status_code in [200, 204]:
+                log_operation("DELETE", patient_id, "success", "Patient deleted")
+                return Response({"message": "Patient deleted"}, status=status.HTTP_204_NO_CONTENT)
+            log_operation("DELETE", patient_id, "failed", r.text)
+            return Response({"error": "Patient not found"}, status=status.HTTP_404_NOT_FOUND)
+        except Exception as e:
+            log_operation("DELETE", patient_id, "failed", str(e))
+            return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET'])
 def all_patient_count(request):
@@ -75,28 +106,54 @@ def all_patient_count(request):
     except Exception as e:
         return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
 
-
 @api_view(['GET'])
 def search_patient(request):
+    """
+    Search patients by name, ID, or date (birth date).
+    URL params:
+        ?name=John
+        ?id=123
+        ?birth_date=2000-01-01
+    """
     name = request.GET.get("name", "").strip()
-    if not name:
-        return Response({"error": "Name parameter required"}, status=status.HTTP_400_BAD_REQUEST)
+    patient_id = request.GET.get("id", "").strip()
+    birth_date = request.GET.get("birth_date", "").strip()
+
+    if not any([name, patient_id, birth_date]):
+        return Response({"error": "Provide at least one search parameter"}, status=status.HTTP_400_BAD_REQUEST)
+
     try:
-        encoded_name = quote(name)
-        r = requests.get(f"{FHIR_SERVER}/Patient?name={encoded_name}")
+        # Build FHIR query
+        query = []
+        if name:
+            query.append(f"name={quote(name)}")
+        if patient_id:
+            query.append(f"_id={quote(patient_id)}")
+        if birth_date:
+            query.append(f"birthdate={quote(birth_date)}")
+
+        query_str = "&".join(query)
+        r = requests.get(f"{FHIR_SERVER}/Patient?{query_str}")
         r.raise_for_status()
+
         results = []
         for entry in r.json().get("entry", []):
             p = entry.get("resource", {})
             name_data = p.get("name", [{}])[0]
             full_name = f"{' '.join(name_data.get('given', []))} {name_data.get('family', '')}".strip()
-            results.append({"id": p.get("id"), "name": full_name})
+            results.append({
+                "id": p.get("id"),
+                "name": full_name,
+                "gender": p.get("gender"),
+                "birth_date": p.get("birthDate")
+            })
+
         if not results:
-            return Response({"error": "Patient not found"}, status=status.HTTP_404_NOT_FOUND)
+            return Response({"error": "No patients found"}, status=status.HTTP_404_NOT_FOUND)
+
         return Response({"count": len(results), "results": results})
     except Exception as e:
         return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
-
 
 @api_view(['GET'])
 def list_patients_by_last_updated(request):
@@ -113,7 +170,6 @@ def list_patients_by_last_updated(request):
         return Response({"count": len(results), "results": results})
     except Exception as e:
         return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
-
 
 # ----------------- HTML Views -----------------
 def create_patient_view(request):
@@ -133,17 +189,14 @@ def create_patient_view(request):
         return redirect('list_patients_view')
     return render(request, 'patients/index.html')
 
+
 def list_patients_view(request):
-    """
-    Fetches patients from FHIR server, sorted by most recently added (descending).
-    Excludes patients without names (optional filter to skip invalid data).
-    """
+    """HTML view: list patients, recent first"""
     r = requests.get(f"{FHIR_SERVER}/Patient?_count=50&_sort=-_lastUpdated")
     patients = []
     if r.status_code == 200:
         for entry in r.json().get("entry", []):
             p = entry.get("resource", {})
-            # Skip patients without a name
             if not p.get("name"):
                 continue
             name_data = p.get("name", [{}])[0]
@@ -157,19 +210,39 @@ def list_patients_view(request):
     return render(request, 'patients/list_patients.html', {"patients": patients})
 
 
-
 def search_patients_view(request):
-    name = request.GET.get("name", "")
+    """HTML search page for name, ID, and birth date"""
+    name = request.GET.get("name", "").strip()
+    patient_id = request.GET.get("id", "").strip()
+    birth_date = request.GET.get("birth_date", "").strip()
     results = []
-    if name:
-        r = requests.get(f"{FHIR_SERVER}/Patient?name={name}")
+
+    if any([name, patient_id, birth_date]):
+        # Build FHIR query
+        query = []
+        if name:
+            query.append(f"name={quote(name)}")
+        if patient_id:
+            query.append(f"_id={quote(patient_id)}")
+        if birth_date:
+            query.append(f"birthdate={quote(birth_date)}")
+        query_str = "&".join(query)
+
+        r = requests.get(f"{FHIR_SERVER}/Patient?{query_str}")
         if r.status_code == 200:
             for entry in r.json().get("entry", []):
                 p = entry.get("resource", {})
                 name_data = p.get("name", [{}])[0]
                 full_name = f"{' '.join(name_data.get('given', []))} {name_data.get('family', '')}".strip()
-                results.append({"id": p.get("id"), "name": full_name})
+                results.append({
+                    "id": p.get("id"),
+                    "name": full_name,
+                    "gender": p.get("gender"),
+                    "birth_date": p.get("birthDate")
+                })
+
     return render(request, 'patients/search.html', {"results": results})
+
 
 
 def update_patient_view(request, patient_id):
@@ -193,7 +266,6 @@ def update_patient_view(request, patient_id):
             "gender": request.POST.get("gender"),
             "birth_date": request.POST.get("birth_date"),
         }
-        # Send PUT request to FHIR server
         requests.put(f"{FHIR_SERVER}/Patient/{patient_id}", json={
             "resourceType": "Patient",
             "id": patient_id,
@@ -218,6 +290,7 @@ def delete_patient_view(request, patient_id):
         }
 
     if request.method == "POST":
+        # Delete from FHIR server
         requests.delete(f"{FHIR_SERVER}/Patient/{patient_id}")
         return redirect('list_patients_view')
     return render(request, 'patients/delete.html', {"patient": patient})

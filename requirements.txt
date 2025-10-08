@@ -1,0 +1,19 @@
+# Core Django framework
+Django==5.2.7
+
+# Django REST framework for APIs
+djangorestframework==3.20.0
+
+# Requests library to communicate with FHIR server
+requests==2.32.1
+
+# For parsing and encoding URLs (usually standard library, but keep updated)
+urllib3==2.0.5
+
+# Optional: for logging enhancements
+gunicorn==22.2.0
+
+# Bootstrap is included via CDN in templates, no Python package needed
+
+# Optional: if you use python-dotenv for environment variables
+python-dotenv==1.0.1
