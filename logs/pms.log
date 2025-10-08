@@ -1,0 +1,343 @@
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 981
+"GET /patients/list/ HTTP/1.1" 200 14144
+"GET / HTTP/1.1" 200 981
+"POST /api/patients/ HTTP/1.1" 201 5717
+"GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 200 121457
+"GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 200 3426
+"GET /static/rest_framework/js/csrf.js HTTP/1.1" 200 1793
+"GET /static/rest_framework/css/prettify.css HTTP/1.1" 200 817
+"GET /static/rest_framework/css/default.css HTTP/1.1" 200 1152
+"GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 200 59
+"GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 200 3796
+"GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 200 13632
+"GET /static/rest_framework/js/default.js HTTP/1.1" 200 1268
+"GET /static/rest_framework/img/grid.png HTTP/1.1" 200 1458
+"GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 200 39680
+"GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 200 87533
+"GET /patients/search/ HTTP/1.1" 200 421
+Not Found: /api/patients/search/
+"GET /api/patients/search/?name=Sharath+A+L HTTP/1.1" 404 5459
+Not Found: /api/patients/search/
+"GET /api/patients/search/?name=Sharath HTTP/1.1" 404 5439
+"GET / HTTP/1.1" 200 981
+"GET /patients/search/ HTTP/1.1" 200 421
+Not Found: /api/patients/search/
+"GET /api/patients/search/?name=Sharath+A+L HTTP/1.1" 404 5459
+"GET /patients/list/ HTTP/1.1" 200 14144
+"GET /patients/search/ HTTP/1.1" 200 421
+Not Found: /api/patients/search/
+"GET /api/patients/search/?name=Peter+Chalmers HTTP/1.1" 404 5474
+"GET /patients/search/ HTTP/1.1" 200 421
+Not Found: /api/patients/search/
+"GET /api/patients/search/?name=Duck+Donald HTTP/1.1" 404 5459
+"GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 304 0
+"GET /static/rest_framework/css/prettify.css HTTP/1.1" 304 0
+"GET /static/rest_framework/css/default.css HTTP/1.1" 304 0
+"GET /static/rest_framework/js/csrf.js HTTP/1.1" 304 0
+"GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 304 0
+"GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 304 0
+"GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 304 0
+"GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 304 0
+"GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 304 0
+"GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 304 0
+"GET /static/rest_framework/js/default.js HTTP/1.1" 304 0
+"GET /patients/list/ HTTP/1.1" 200 14144
+"GET /patients/7058248/update/ HTTP/1.1" 200 929
+Method Not Allowed: /api/patients/7058248/update/
+"POST /api/patients/7058248/update/ HTTP/1.1" 405 5983
+"POST /api/patients/ HTTP/1.1" 201 102
+"GET /api/patients/49537573/ HTTP/1.1" 200 97
+"PUT /api/patients/49537573/update/ HTTP/1.1" 200 109
+Method Not Allowed: /api/patients/49537573/delete/
+"PUT /api/patients/49537573/delete/ HTTP/1.1" 405 40
+"DELETE /api/patients/49537573/delete/ HTTP/1.1" 204 68
+Not Found: /api/patients/49537573/
+"GET /api/patients/49537573/ HTTP/1.1" 404 29
+Not Found: /api/patients/allPatientCount/
+"GET /api/patients/allPatientCount/ HTTP/1.1" 404 29
+Not Found: /api/patients/allPatientCount/
+"GET /api/patients/allPatientCount/ HTTP/1.1" 404 29
+Not Found: /api/patients/allPatientCount/
+"GET /api/patients/allPatientCount/ HTTP/1.1" 404 29
+"GET /api/patients/allPatientCount HTTP/1.1" 200 17
+Not Found: /api/patients/search/
+"GET /api/patients/search/?name=John HTTP/1.1" 404 29
+"POST /api/patients/ HTTP/1.1" 201 102
+Not Found: /api/patients/search/
+"GET /api/patients/search/?name=Sharath HTTP/1.1" 404 29
+Not Found: /api/patients/search/
+"GET /api/patients/search/?name=Sharath HTTP/1.1" 404 29
+Not Found: /api/patients/search/
+"GET /api/patients/search/?name=Sharath/ HTTP/1.1" 404 29
+Not Found: /api/patients/search/
+"GET /api/patients/search/?name=Sharath HTTP/1.1" 404 29
+Not Found: /api/patients/search/
+"GET /api/patients/search/?name=Sharath%20A%20L HTTP/1.1" 404 29
+"POST /api/patients/ HTTP/1.1" 201 102
+"GET /api/patients/49537631 HTTP/1.1" 301 0
+"GET /api/patients/49537631/ HTTP/1.1" 200 100
+Not Found: /api/patients/search/
+"GET /api/patients/search/?name=Sharath HTTP/1.1" 404 29
+Not Found: /api/patients/search/
+"GET /api/patients/search/?name=Sharath%20A%20L HTTP/1.1" 404 29
+C:\Users\Sharath A L\Desktop\patient_management\patients\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /api/patients/search/
+"GET /api/patients/search/?name=Sharath%20A%20L HTTP/1.1" 404 29
+Not Found: /api/patients/search/
+"GET /api/patients/search/?name=Sharath HTTP/1.1" 404 29
+Not Found: /api/patients/search/
+"GET /api/patients/search/?name=Sharath HTTP/1.1" 404 29
+"GET / HTTP/1.1" 200 981
+"GET /patients/search/ HTTP/1.1" 200 421
+Not Found: /api/patients/search/
+"GET /api/patients/search/?name=Sharath HTTP/1.1" 404 5439
+"GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 304 0
+"GET /static/rest_framework/css/prettify.css HTTP/1.1" 304 0
+"GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 304 0
+"GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 304 0
+"GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 304 0
+"GET /static/rest_framework/css/default.css HTTP/1.1" 304 0
+"GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 304 0
+"GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 304 0
+"GET /static/rest_framework/js/csrf.js HTTP/1.1" 304 0
+"GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 304 0
+"GET /static/rest_framework/js/default.js HTTP/1.1" 304 0
+"GET /static/rest_framework/img/grid.png HTTP/1.1" 304 0
+"GET /api/patients/49537631 HTTP/1.1" 301 0
+"GET /api/patients/49537631/ HTTP/1.1" 200 100
+C:\Users\Sharath A L\Desktop\patient_management\patients\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\Sharath A L\Desktop\patient_management\patients\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /api/patients/search/
+"GET /api/patients/search/?name=Sharath HTTP/1.1" 404 5439
+Not Found: /api/patients/search/
+"GET /api/patients/search/?name=Sharath HTTP/1.1" 404 5439
+C:\Users\Sharath A L\Desktop\patient_management\patients\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\Sharath A L\Desktop\patient_management\patients\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\Sharath A L\Desktop\patient_management\patients\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\Sharath A L\Desktop\patient_management\patients\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\Sharath A L\Desktop\patient_management\pms\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\Sharath A L\Desktop\patient_management\pms\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\Sharath A L\Desktop\patient_management\patients\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /api/patients
+Traceback (most recent call last):
+  File "C:\Users\Sharath A L\Desktop\patient_management\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Sharath A L\Desktop\patient_management\venv\Lib\site-packages\django\utils\deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+  File "C:\Users\Sharath A L\Desktop\patient_management\venv\Lib\site-packages\django\middleware\common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Sharath A L\Desktop\patient_management\venv\Lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+    ...<9 lines>...
+    )
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/patients/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+"POST /api/patients HTTP/1.1" 500 74787
+"POST /api/patients/ HTTP/1.1" 201 102
+C:\Users\Sharath A L\Desktop\patient_management\patients\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\Sharath A L\Desktop\patient_management\patients\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /api/patients/allPatientCount/
+"GET /api/patients/allPatientCount/ HTTP/1.1" 404 29
+"GET /api/patients/allPatientCount HTTP/1.1" 301 0
+Not Found: /api/patients/allPatientCount/
+"GET /api/patients/allPatientCount/ HTTP/1.1" 404 29
+"GET /patients/search/ HTTP/1.1" 200 421
+"GET /patients/list/ HTTP/1.1" 200 14056
+Method Not Allowed: /api/patients/
+"GET /api/patients/ HTTP/1.1" 405 40
+Not Found: /api/patients/7058248/update/
+"POST /api/patients/7058248/update/ HTTP/1.1" 404 5084
+Not Found: /api/patients/allPatientCount/
+"GET /api/patients/allPatientCount/ HTTP/1.1" 404 29
+"GET /api/patients/allPatientCount HTTP/1.1" 301 0
+Not Found: /api/patients/allPatientCount/
+"GET /api/patients/allPatientCount/ HTTP/1.1" 404 29
+Not Found: /api/patients/allPatientCount/
+"GET /api/patients/allPatientCount/ HTTP/1.1" 404 29
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 981
+"POST /api/patients/ HTTP/1.1" 201 5608
+"GET /static/rest_framework/css/prettify.css HTTP/1.1" 304 0
+"GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 304 0
+"GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 304 0
+"GET /static/rest_framework/css/default.css HTTP/1.1" 304 0
+"GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 304 0
+"GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 304 0
+"GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 304 0
+"GET /static/rest_framework/js/default.js HTTP/1.1" 304 0
+"GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 304 0
+"GET /static/rest_framework/img/grid.png HTTP/1.1" 304 0
+"GET /static/rest_framework/js/csrf.js HTTP/1.1" 304 0
+"GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 304 0
+"GET /patients/list/ HTTP/1.1" 200 14056
+"GET /patients/search/ HTTP/1.1" 200 421
+Not Found: /api/patients/search/
+"GET /api/patients/search/?name=rajanna HTTP/1.1" 404 8363
+Not Found: /api/patients/list/
+"GET /api/patients/list/?lastUpdated=2024-10-01 HTTP/1.1" 404 29
+"GET / HTTP/1.1" 200 981
+"GET / HTTP/1.1" 200 981
+"GET /patients/search/ HTTP/1.1" 200 421
+"GET /patients/list/ HTTP/1.1" 200 14056
+C:\Users\Sharath A L\Desktop\patient_management\pms\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\Sharath A L\Desktop\patient_management\patients\views.py changed, reloading.
+Watching for file changes with StatReloader
+Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\Sharath A L\Desktop\patient_management\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Sharath A L\Desktop\patient_management\venv\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "C:\Users\Sharath A L\Desktop\patient_management\venv\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "C:\Users\Sharath A L\Desktop\patient_management\venv\Lib\site-packages\django\http\request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+"GET / HTTP/1.1" 400 76125
+Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\Sharath A L\Desktop\patient_management\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Sharath A L\Desktop\patient_management\venv\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "C:\Users\Sharath A L\Desktop\patient_management\venv\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "C:\Users\Sharath A L\Desktop\patient_management\venv\Lib\site-packages\django\http\request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+"GET / HTTP/1.1" 400 76125
+C:\Users\Sharath A L\Desktop\patient_management\pms\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\Sharath A L\Desktop\patient_management\pms\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\Sharath A L\Desktop\patient_management\pms\settings.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 2163
+"POST / HTTP/1.1" 302 0
+"GET /patients/list/ HTTP/1.1" 200 26302
+"GET /patients/6842182/update/ HTTP/1.1" 200 919
+"GET /patients/list/ HTTP/1.1" 200 26302
+"GET /patients/6842182/update/ HTTP/1.1" 200 919
+"GET /patients/list/ HTTP/1.1" 200 26302
+"GET /patients/6842182/delete/ HTTP/1.1" 200 539
+Not Found: /api/patients/6842182/delete/
+"POST /api/patients/6842182/delete/ HTTP/1.1" 404 5084
+C:\Users\Sharath A L\Desktop\patient_management\pms\settings.py changed, reloading.
+Watching for file changes with StatReloader
+Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\Sharath A L\Desktop\patient_management\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Sharath A L\Desktop\patient_management\venv\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "C:\Users\Sharath A L\Desktop\patient_management\venv\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "C:\Users\Sharath A L\Desktop\patient_management\venv\Lib\site-packages\django\http\request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+"GET /patients/6842182/delete/ HTTP/1.1" 400 76709
+Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\Sharath A L\Desktop\patient_management\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Sharath A L\Desktop\patient_management\venv\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "C:\Users\Sharath A L\Desktop\patient_management\venv\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "C:\Users\Sharath A L\Desktop\patient_management\venv\Lib\site-packages\django\http\request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+"GET /patients/list/ HTTP/1.1" 400 76608
+C:\Users\Sharath A L\Desktop\patient_management\pms\settings.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /patients/list/ HTTP/1.1" 200 26302
+"GET /patients/7058462/update/ HTTP/1.1" 200 916
+"POST /patients/7058462/update/ HTTP/1.1" 302 0
+"GET /patients/list/ HTTP/1.1" 200 26291
+"GET /patients/7058254/delete/ HTTP/1.1" 200 536
+Not Found: /api/patients/7058254/delete/
+"POST /api/patients/7058254/delete/ HTTP/1.1" 404 5084
+C:\Users\Sharath A L\Desktop\patient_management\patients\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\Sharath A L\Desktop\patient_management\patients\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\Sharath A L\Desktop\patient_management\patients\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\Sharath A L\Desktop\patient_management\patients\views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /api/patients/7058254/delete/
+"POST /api/patients/7058254/delete/ HTTP/1.1" 404 5084
+Not Found: /api/patients/7058254/delete/
+"POST /api/patients/7058254/delete/ HTTP/1.1" 404 5084
+"GET /patients/7058462/update/ HTTP/1.1" 200 906
+- Broken pipe from ('127.0.0.1', 61694)
+"GET / HTTP/1.1" 200 2163
+"GET /patients/list/ HTTP/1.1" 200 26302
+"GET / HTTP/1.1" 200 2163
+"POST / HTTP/1.1" 302 0
+"GET /patients/list/ HTTP/1.1" 200 26302
+"GET /patients/6842182/update/ HTTP/1.1" 200 919
+"GET /patients/6842182/update/ HTTP/1.1" 200 2265
+"POST /patients/6842182/update/ HTTP/1.1" 302 0
+"GET /patients/list/ HTTP/1.1" 200 26306
+"GET /patients/7058248/delete/ HTTP/1.1" 200 536
+Not Found: /api/patients/7058248/delete/
+"POST /api/patients/7058248/delete/ HTTP/1.1" 404 5084
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET /patients/6842182/update/ HTTP/1.1" 200 2275
+"POST /patients/6842182/update/ HTTP/1.1" 302 0
+"GET /patients/list/ HTTP/1.1" 200 26306
+"GET /patients/search/ HTTP/1.1" 200 1152
+"GET /patients/list/ HTTP/1.1" 200 26306
+"GET /patients/search/ HTTP/1.1" 200 1152
+"GET /patients/search/?name=Duck+Donald HTTP/1.1" 200 1152
+"GET /patients/list/ HTTP/1.1" 200 26324
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 2163
+"GET /patients/list/ HTTP/1.1" 200 26324
+"GET /patients/7058254/update/ HTTP/1.1" 200 2256
+"POST /patients/7058254/update/ HTTP/1.1" 302 0
+"GET /patients/list/ HTTP/1.1" 200 26333
+"GET /patients/search/ HTTP/1.1" 200 1152
+"GET /patients/search/?name=Sharath HTTP/1.1" 200 1152
+"GET /patients/list/ HTTP/1.1" 200 26333
+"GET /patients/7058258/delete/ HTTP/1.1" 200 916
+"POST /patients/7058258/delete/ HTTP/1.1" 302 0
+"GET /patients/list/ HTTP/1.1" 200 26333
+"GET /patients/list/ HTTP/1.1" 200 26333
+"GET /patients/7058258/delete/ HTTP/1.1" 200 916
+"POST /patients/7058258/delete/ HTTP/1.1" 302 0
+"GET /patients/list/ HTTP/1.1" 200 26333
+"GET /patients/list/ HTTP/1.1" 200 26333
+"GET /patients/7058258/update/ HTTP/1.1" 200 2256
+C:\Users\Sharath A L\Desktop\patient_management\patients\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /patients/list/ HTTP/1.1" 200 25049
+"GET / HTTP/1.1" 200 2163
+"POST / HTTP/1.1" 302 0
+"GET /patients/list/ HTTP/1.1" 200 24535
+"GET /patients/list/ HTTP/1.1" 200 24535
+"GET /patients/49537779/update/ HTTP/1.1" 200 2264
+"POST /patients/49537779/update/ HTTP/1.1" 302 0
+"GET /patients/list/ HTTP/1.1" 200 25052
+"GET /patients/list/ HTTP/1.1" 200 25052
+"GET /patients/search/ HTTP/1.1" 200 1152
+"GET /patients/search/?name=Sharath+Ackerman HTTP/1.1" 200 1152
+"GET /patients/search/?name=Sharath+Ackerman HTTP/1.1" 200 1152
+"GET /patients/list/ HTTP/1.1" 200 25050
+"GET /patients/list/ HTTP/1.1" 200 25050
